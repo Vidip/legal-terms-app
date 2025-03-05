@@ -1,0 +1,25 @@
+# Default values
+environment: development
+
+# Application configuration
+app:
+  name: legal-term-api
+  port: 8000
+  replicas: 3
+  image:
+    repository: legal-term-api
+    tag: latest
+    pullPolicy: Never
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "128Mi"
+    limits:
+      cpu: "500m"
+      memory: "512Mi"
+
+# Service configuration
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 8000 

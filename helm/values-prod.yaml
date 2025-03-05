@@ -1,0 +1,22 @@
+environment: production
+
+app:
+  name: legal-term-api
+  port: 8000
+  replicas: 3
+  image:
+    repository: ghcr.io/vidip/legal-term-api
+    tag: latest
+    pullPolicy: Always
+  resources:
+    requests:
+      cpu: "200m"
+      memory: "256Mi"
+    limits:
+      cpu: "1000m"
+      memory: "512Mi"
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 8000 

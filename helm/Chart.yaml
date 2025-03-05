@@ -1,0 +1,4 @@
+apiVersion: v2
+name: legal-term-api
+description: A Helm chart for Legal Term API
+version: 0.1.0 
