@@ -24,8 +24,10 @@ helm install legal-term-api-prod ./helm -f helm/values-prod.yaml
 ### Upgrade existing deployment
 helm upgrade legal-term-api-dev ./helm -f helm/values-dev.yaml
 
+### Get the URL of the service
 minikube service legal-term-api --url
 
+### Stop the minikube cluster
 minikube stop
 
 ## Troubleshooting:
