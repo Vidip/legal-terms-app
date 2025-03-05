@@ -7,35 +7,37 @@ An HTTP API for legal terms.
 * `GET /terms`: list all available terms.
 * `GET /definitions?term=<term>`: get the definition of a term.
 
+## Development
+
 docker build -t legal-term-api:latest .
 
 minikube start
 
 minikube image load legal-term-api:latest
 
-# Install for development
+### Install for development
 helm install legal-term-api-dev ./helm -f helm/values-dev.yaml
 
-# Install for production
+### Install for production
 helm install legal-term-api-prod ./helm -f helm/values-prod.yaml
 
-# Upgrade existing deployment
+### Upgrade existing deployment
 helm upgrade legal-term-api-dev ./helm -f helm/values-dev.yaml
 
 minikube service legal-term-api --url
 
 minikube stop
 
-Troubleshooting:
+## Troubleshooting:
 
-# Check pod logs
+### Check pod logs
 kubectl logs -l app=legal-term-api
 
-# Describe pod for more details
+### Describe pod for more details
 kubectl describe pod -l app=legal-term-api
 
-# Check deployment status
+### Check deployment status
 kubectl describe deployment legal-term-api
 
-# Check service status
+### Check service status
 kubectl describe service legal-term-api
