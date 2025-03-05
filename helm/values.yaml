@@ -5,7 +5,7 @@ environment: development
 app:
   name: legal-term-api
   port: 8000
-  replicas: 3
+  replicas: 2
   image:
     repository: legal-term-api
     tag: latest

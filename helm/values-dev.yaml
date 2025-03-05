@@ -1,7 +1,7 @@
 environment: development
 
 app:
-  replicas: 1
+  replicas: 2
   resources:
     requests:
       cpu: "100m"
@@ -9,3 +9,14 @@ app:
     limits:
       cpu: "300m"
       memory: "256Mi" 
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilization: 70
+  targetMemoryUtilization: 80
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 2 
