@@ -25,7 +25,7 @@ helm install legal-term-api-prod ./helm -f helm/values-prod.yaml
 helm upgrade legal-term-api-dev ./helm -f helm/values-dev.yaml
 
 ### Get the URL of the service
-minikube service legal-term-api --url
+kubectl port-forward svc/legal-term-api 8080:80
 
 ### Stop the minikube cluster
 minikube stop
