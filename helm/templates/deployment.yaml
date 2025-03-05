@@ -7,6 +7,11 @@ metadata:
     environment: {{ .Values.environment }}
 spec:
   replicas: {{ .Values.app.replicas }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   selector:
     matchLabels:
       app: {{ .Values.app.name }}
@@ -30,4 +35,9 @@ spec:
                 name: {{ .Values.app.name }}-config
                 key: ENVIRONMENT
         resources:
-          {{- toYaml .Values.app.resources | nindent 12 }} 
+          requests:
+            cpu: {{ .Values.app.resources.requests.cpu }}
+            memory: {{ .Values.app.resources.requests.memory }}
+          limits:
+            cpu: {{ .Values.app.resources.limits.cpu }}
+            memory: {{ .Values.app.resources.limits.memory }}
